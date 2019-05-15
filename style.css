@@ -1,0 +1,30 @@
+.table_task {
+    display: flex;
+    flex-flow: row wrap;
+    width: 450px;
+}
+.table_task .black {
+    background-color: black;
+}
+.task {
+    width: 50px;
+    
+    background-color: white;
+    border: 1px solid black;
+}
+.container {
+    display: flex;
+    margin-bottom: 15px;
+}
+.task_numer {
+    border: none;
+    height: 30px;
+    padding-top: 20px;
+}
+.abc {
+    display: flex;
+}
+.task_abc{
+    border: 1px solid white;
+    text-align: center;
+}
