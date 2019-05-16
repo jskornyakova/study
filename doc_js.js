@@ -94,23 +94,30 @@ for (i = 0; i < product.length; i++) {
 
 
 var $basket = document.getElementById('basket');
+totalBasket = [];
+totalBasketIs();
+function totalBasketIs() {
+    if (totalBasket.length == 0) {
+        document.write('Корзина пуста. ');
+    } else {
 
-for (i=0; i < product.length; i++) { 
-    var $product_basket = document.createElement('div');
-    $product_basket.className = 'product_basket';
-    $product_basket.innerHTML = '<h3>'+ product[i].name+'</h3>'+'<p>'+ product[i].price+' USD </p>';
-    $basket.appendChild($product_basket);
-    $product_basket.innerHTML = '<h3>'+ product[i].name+'</h3>'+'<p>'+ product[i].price+' USD </p>';
-    $basket.appendChild($product_basket);
+        document.write('В корзине '+ totalBasket.length + ' товаров на сумму ' + countBasketPrice()+" рублей");  
+    }
 }
 
-var basket_price = 0;
 
+for (i=0; i < 3; i++) { 
+    
+    totalBasket[i] = product[i];
+}
+
+totalBasketIs();
+var basket_price = 0;
 function countBasketPrice() {
-    for (i=0; i < product.length; i++) { 
-        basket_price += (product[i].price * product[i].count);
+    var basket_price = 0;
+    for (i=0; i < totalBasket.length; i++) { 
+        basket_price += (totalBasket[i].price * totalBasket[i].count);
     }
     return basket_price;
 } 
  
-document.write('Общая стоимость корзины: ' + countBasketPrice());  
